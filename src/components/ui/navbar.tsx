@@ -28,7 +28,7 @@ export default function Navbar() {
         {/* Left Section - Logo + Links */}
         <div
           className={`flex items-center gap-4 transition-all duration-500 ${
-            isShrunk ? "-ml-6" : "-ml-10"
+            isShrunk ? "md:-ml-6" : "md:-ml-10"
           }`}
         >
           {/* Logo */}
