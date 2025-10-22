@@ -3,9 +3,18 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function Hero() {
   const router = useRouter();
+  const [isNavigating, setIsNavigating] = useState(false);
+
+  const handleDiscoverClick = () => {
+    if (isNavigating) return; // Prevent multiple clicks
+    
+    setIsNavigating(true);
+    router.push('/discover');
+  };
 
   return (
     <section className="relative h-screen min-h-[600px] md:min-h-[700px] lg:min-h-[800px] flex items-center justify-center text-center text-white overflow-hidden">
@@ -45,10 +54,11 @@ export default function Hero() {
               Shop Now
             </Button>
             <Button
-              onClick={() => router.push('/discover')}
-              className="w-full sm:w-auto bg-gradient-to-r from-amber-600 to-orange-500 text-white font-semibold hover:from-amber-700 hover:to-orange-600 transition-all px-6 sm:px-8 py-3 text-base sm:text-lg shadow-lg border-2 border-white/20"
+              onClick={handleDiscoverClick}
+              disabled={isNavigating}
+              className="w-full sm:w-auto bg-gradient-to-r from-amber-600 to-orange-500 text-white font-semibold hover:from-amber-700 hover:to-orange-600 transition-all px-6 sm:px-8 py-3 text-base sm:text-lg shadow-lg border-2 border-white/20 disabled:opacity-70 disabled:cursor-not-allowed"
             >
-              Discover Businesses
+              {isNavigating ? 'Loading...' : 'Discover Businesses'}
             </Button>
           </motion.div>
         </div>
