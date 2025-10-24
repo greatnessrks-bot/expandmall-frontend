@@ -45,7 +45,7 @@ export default function BusinessProfilePage() {
 
   // Check if already connected
   const existingConnection = connections.find(
-    (conn: any) => conn.businessId === params.id
+    (conn) => conn.businessId === params.id
   );
 
   if (!selectedBusiness) {
@@ -369,7 +369,7 @@ export default function BusinessProfilePage() {
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-lg p-6 max-w-md w-full">
             <h2 className="text-xl font-bold mb-4">Connection Request Modal</h2>
-            <p className="text-gray-600 mb-4">We'll build this component next!</p>
+            <p className="text-gray-600 mb-4">We&apos;ll build this component next!</p>
             <Button onClick={() => setShowConnectionModal(false)}>
               Close
             </Button>
